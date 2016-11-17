@@ -1,8 +1,11 @@
 extends layout
 
 block content
-  h1= title
+  h1= "How are you feeling today?"
   p
-    img(src='images/happy.jpg')
-    img(src='images/neutral-face.png')
-    img(src='images/sad.jpg')
+    a(href='/setdata?morale=2')
+      img(src='images/happy.jpg')
+    a(href='/setdata?morale=1')
+      img(src='images/neutral-face.png')
+    a(href='/setdata?morale=0')
+      img(src='images/sad.jpg')

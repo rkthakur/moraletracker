@@ -15,7 +15,8 @@ module.exports = function (app, ObjRepo) {
       {
           var data=[{'datetime' : new Date(),'userIPaddress' : req.connection.remoteAddress,'morale' : req.query.morale}];
           ObjRepo.db.connectionObj.collection("moraletracker").insert(data, function (err, result) {
-          res.send(result);
+          res.redirect('/');
+          //res.send(result);
       });
     }
     else
