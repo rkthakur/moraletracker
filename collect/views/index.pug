@@ -1,5 +1,4 @@
 extends layout
-
 block content
   h1= "How are you feeling today?"
   p
@@ -9,3 +8,5 @@ block content
       img(src='images/neutral-face.png')
     a(href='/setdata?morale=0')
       img(src='images/sad.jpg')
+block universalfooter
+  include universalfooter.pug

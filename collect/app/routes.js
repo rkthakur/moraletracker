@@ -10,6 +10,10 @@ module.exports = function (app, ObjRepo) {
     app.get('/', function (req, res, next) {
         res.render('index', {title: 'Morale Tracker', user: req.user });
     });
+    app.get('/report', function (req, res, next) {
+        res.render('report', {title: 'Morale Tracker', user: req.user });
+    });
+
     app.get('/setdata', function (req, res, next) {
       if (req.query.morale)
       {
@@ -24,4 +28,18 @@ module.exports = function (app, ObjRepo) {
       res.send({'ERROR' : 'Invalid Request'});
     }
     });
+
+    app.get('/api/data', function (req, res) {
+        // use mongoose to get all nerds in the database
+        var cursor = ObjRepo.db.connectionObj.db.collection("moraletracker").find({},{_id:0,morale:1});
+        var dataArray = [];
+        cursor.each(function (err, doc) {
+            if (doc != null) {
+                dataArray.push(doc);
+            } else {
+                res.send(dataArray);
+            }
+        });
+    });
+
 }
