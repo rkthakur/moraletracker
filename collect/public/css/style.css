@@ -1,8 +1,37 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+@media (min-width: 320px) and (orientation: portrait) {
+  .image-stack  a {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  h1 {
+    font-size: 25px;
+  }
+}
+
+.image-stack img {
+  max-width: 40vw;
+  max-height: 30vh;
+}
+
+.image-stack img:active {
+  transform: translateY(30px);
+}
+
+@media (min-width: 768px),
+(orientation: landscape) {
+  .image-stack img {
+    max-width: 20vw;
+    max-height: none;
+  }
+  .image-stack  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

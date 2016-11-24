@@ -1,12 +1,12 @@
 extends layout
 block content
   h1= "How are you feeling today?"
-  p
+  p.image-stack
     a(href='/setdata?morale=2')
-      img(src='images/happy.jpg')
+      img(src='images/happy.png')
     a(href='/setdata?morale=1')
-      img(src='images/neutral-face.png')
+      img(src='images/neutral.png')
     a(href='/setdata?morale=0')
-      img(src='images/sad.jpg')
+      img(src='images/sad.png')
 block universalfooter
   include universalfooter.pug

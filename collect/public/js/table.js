@@ -1,3 +1,4 @@
+window.fullScreen = true;
 queue().defer(d3.json, "/api/data").await(tableGraph);
 function tableGraph(error, apiData) {
 var noofdiv = apiData.length;

@@ -31,7 +31,7 @@ module.exports = function (app, ObjRepo) {
 
     app.get('/api/data', function (req, res) {
         // use mongoose to get all nerds in the database
-        var cursor = ObjRepo.db.connectionObj.db.collection("moraletracker").find({},{_id:0,morale:1});
+        var cursor = ObjRepo.db.connectionObj.db.collection("moraletracker").find({"datetime": {$gt : new Date(new Date() - 24*60*60*1000)}},{_id:0,morale:1});
         var dataArray = [];
         cursor.each(function (err, doc) {
             if (doc != null) {
