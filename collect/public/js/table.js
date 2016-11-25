@@ -13,17 +13,24 @@ var root =  Math.sqrt(noofdiv),
 var divhtml = '';
 var color = '';
 for( var i = 0; i < loopValue; i++ ){
-      if (apiData[i].morale == 0)
-        color = "red"
-      if (apiData[i].morale == 1)
-        color = "yellow"
-      if (apiData[i].morale == 2)
-        color = "green"
-      divhtml += '<div class="sdiv '+color+'" style="width:'+widthSDiv+'%; height:'+heightSDiv+'%"></div>'
+	color = setColor(apiData[i].morale);
+    divhtml += '<div class="sdiv '+color+'" style="width:'+widthSDiv+'%; height:'+heightSDiv+'%"></div>'
 }
 
-for( var i = 0; i<lastremain; i++  ){
-divhtml += '<div class="sdiv '+color+'" style="width:'+100/lastremain+'%; height:'+heightSDiv+'%"></div>'
+for( var i = loopValue; i<(loopValue+lastremain); i++  ){
+	color = setColor(apiData[i].morale);
+	divhtml += '<div class="sdiv '+color+'" style="width:'+100/lastremain+'%; height:'+heightSDiv+'%"></div>'
+}
+
+function setColor(apivalue){
+	if (apivalue == 0)
+		color = "red"
+	if (apivalue == 1)
+		color = "yellow"
+	if (apivalue == 2)
+		color = "green"
+
+	return color;
 }
 
 document.getElementById("heatMap").innerHTML = divhtml;
