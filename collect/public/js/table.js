@@ -1,6 +1,8 @@
 window.fullScreen = true;
 queue().defer(d3.json, "/api/data").await(tableGraph);
 function tableGraph(error, apiData) {
+for (var i=0; i <2; i++)
+	apiData = apiData.concat(apiData);
 var noofdiv = apiData.length;
 var root =  Math.sqrt(noofdiv),
 	upperValue = Math.ceil(root),

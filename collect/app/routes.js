@@ -13,6 +13,9 @@ module.exports = function (app, ObjRepo) {
     app.get('/report', function (req, res, next) {
         res.render('report', {title: 'Morale Tracker', user: req.user });
     });
+    app.get('/heatmap', function (req, res, next) {
+        res.render('heatmap', {title: 'Morale Tracker', user: req.user });
+    });
 
     app.get('/setdata', function (req, res, next) {
       if (req.query.morale)
