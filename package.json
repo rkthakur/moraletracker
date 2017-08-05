@@ -1,6 +1,6 @@
 {
-  "name": "collect",
-  "version": "0.0.0",
+  "name": "moraletracker",
+  "version": "1.0.0",
   "private": true,
   "main": "app.js",
   "scripts": {
